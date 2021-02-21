@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:when2meet_dupe/screens/eventSchedule.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,7 +23,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: EventScheduleUi(),
+      // MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
