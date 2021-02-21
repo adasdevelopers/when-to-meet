@@ -26,15 +26,17 @@ class _EventScheduleUiState extends State<EventScheduleUi> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           SizedBox(height: 60),
-          _paddingText("Create an Event"),
+          _paddingText("Create an Event", 50),
           Padding(
-            padding: const EdgeInsets.all(30),
-            child: Center(
+            padding: const EdgeInsets.all(20),
+            child: Align(
+              alignment: Alignment.topLeft,
               child: Wrap(
-                spacing: 30,
+                spacing: 10,
                 runSpacing: 20,
                 children: <Widget>[
-                  _evenTitle(),
+                  _createEventSetUp(),
+                  SizedBox(height: 100),
                 ],
               ),
             ),
@@ -44,28 +46,21 @@ class _EventScheduleUiState extends State<EventScheduleUi> {
     );
   }
 
-  Widget _evenTitle() {
+  Widget _createEventSetUp() {
     return Container(
       child: Column(
         children: <Widget>[
-          Text(
-            'Event Title',
-            style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              fontSize: 30,
-            ),
-            textAlign: TextAlign.left,
-          ),
+          _paddingText("Event Title", 25),
           SizedBox(height: 10),
           Container(
-            alignment: Alignment.centerLeft,
+            alignment: Alignment.topLeft,
             decoration: kBoxDecorationStyle,
             height: 60.0,
+            width: 500,
             child: TextFormField(
               keyboardType: TextInputType.name,
               style: TextStyle(
-                color: Colors.white,
+                color: Colors.black,
                 fontFamily: 'OpenSans',
               ),
               decoration: InputDecoration(
@@ -86,14 +81,16 @@ class _EventScheduleUiState extends State<EventScheduleUi> {
     );
   }
 
-  Widget _paddingText(String text) {
+
+
+  Widget _paddingText(String text, double size) {
     return Padding(
-      padding: const EdgeInsets.all(70.0),
+      padding: const EdgeInsets.all(40.0),
       child: Text(
         text,
         style: TextStyle(
-            color: Colors.black, fontSize: 28.0, fontWeight: FontWeight.bold),
-        textAlign: TextAlign.start,
+            color: Colors.black, fontSize: size, fontWeight: FontWeight.bold),
+        textAlign: TextAlign.center,
       ),
     );
   } //_paddingText
