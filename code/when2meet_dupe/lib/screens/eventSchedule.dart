@@ -8,10 +8,13 @@ class EventScheduleUi extends StatefulWidget {
 
 class _EventScheduleUiState extends State<EventScheduleUi> {
   String eventName = "";
+  final timeSchedule = ["Today", "Specific Dates", "Days of the week"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _buildScheduleUi(),
+      body: SingleChildScrollView(
+        child: _buildScheduleUi(),
+      ),
     );
   }
 
@@ -23,20 +26,22 @@ class _EventScheduleUiState extends State<EventScheduleUi> {
   Widget _buildScheduleUi() {
     return SafeArea(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           SizedBox(height: 60),
           _paddingText("Create an Event", 50),
           Padding(
             padding: const EdgeInsets.all(20),
             child: Align(
-              alignment: Alignment.topLeft,
+              alignment: Alignment.center,
               child: Wrap(
                 spacing: 10,
                 runSpacing: 20,
                 children: <Widget>[
                   _createEventSetUp(),
-                  SizedBox(height: 100),
+                  // SizedBox(height: 10),
+                  _scheduleFor(),
+                  _hoursToSchedule()
                 ],
               ),
             ),
@@ -81,7 +86,111 @@ class _EventScheduleUiState extends State<EventScheduleUi> {
     );
   }
 
+  Widget _scheduleFor() {
+    return Container(
+      child: Column(
+        children: <Widget>[
+          _paddingText("Schedule For", 25),
+          SizedBox(height: 10),
+          Container(
+            alignment: Alignment.topLeft,
+            decoration: kBoxDecorationStyle,
+            height: 60.0,
+            width: 500,
+            child: TextFormField(
+              keyboardType: TextInputType.name,
+              style: TextStyle(
+                color: Colors.black,
+                fontFamily: 'OpenSans',
+              ),
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.all(20.0),
+                hintText: 'Enter When you want to schedule',
+                hintStyle: kHintTextStyle,
+              ),
+              validator: (val) =>
+                  val.isEmpty ? "Please enter the event name" : null,
+              onChanged: (value) {
+                setState(() => eventName = value);
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
+  // WORKING CODE FOR DROP DOWN MENU --> do not uncomment or remove
+
+  // Widget _scheduleFor() {
+  //   return Container(
+  //     child: Column(
+  //       children: <Widget>[
+  //         _paddingText("Schedule for", 25),
+  //         SizedBox(height: 10),
+  //         Container(
+  //           alignment: Alignment.topLeft,
+  //           decoration: kBoxDecorationStyle,
+  //           height: 60.0,
+  //           width: 500,
+  //           child: FormField(
+  //             builder: (FormFieldState state) {
+  //               return InputDecorator(
+  //                 decoration: InputDecoration(
+  //                   border: InputBorder.none,
+  //                   contentPadding: EdgeInsets.all(20.0),
+  //                   hintText: 'Enter Event Name',
+  //                   hintStyle: kHintTextStyle,
+  //                 ),
+  //                 child: DropdownButtonHideUnderline(
+  //                   child:DropdownButton(
+  //                     value: value;
+  //                   ),
+  //                   ),
+  //               );
+  //             },
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
+
+  Widget _hoursToSchedule() {
+    return Container(
+      child: Column(
+        children: <Widget>[
+          _paddingText("Time", 25),
+          SizedBox(height: 10),
+          Container(
+            alignment: Alignment.topLeft,
+            decoration: kBoxDecorationStyle,
+            height: 60.0,
+            width: 500,
+            child: TextFormField(
+              keyboardType: TextInputType.name,
+              style: TextStyle(
+                color: Colors.black,
+                fontFamily: 'OpenSans',
+              ),
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.all(20.0),
+                hintText: 'What time?',
+                hintStyle: kHintTextStyle,
+              ),
+              validator: (val) =>
+                  val.isEmpty ? "Please enter the event name" : null,
+              onChanged: (value) {
+                setState(() => eventName = value);
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
   Widget _paddingText(String text, double size) {
     return Padding(
