@@ -41,7 +41,8 @@ class _EventScheduleUiState extends State<EventScheduleUi> {
                   _createEventSetUp(),
                   // SizedBox(height: 10),
                   _scheduleFor(),
-                  _hoursToSchedule()
+                  _hoursToSchedule(),
+                  //_createEventBtn()
                 ],
               ),
             ),
@@ -85,6 +86,34 @@ class _EventScheduleUiState extends State<EventScheduleUi> {
       ),
     );
   }
+
+//   Widget _createEventBtn() {
+//     return Container(
+//       padding: EdgeInsets.symmetric(vertical: 20.0),
+//       //height: 500.0,
+//       width: 500,
+//       child: RaisedButton(
+//           elevation: 5.0,
+// //onPressed: () => HomeScreen,
+//           padding: EdgeInsets.all(15.0),
+//           shape: RoundedRectangleBorder(
+//             borderRadius: BorderRadius.circular(30.0),
+//           ),
+//           color: Colors.blue,
+//           child: Text(
+//             'Create Event',
+//             style: TextStyle(
+//               color: Colors.white,
+//               letterSpacing: 1.5,
+//               fontSize: 18.0,
+//               fontWeight: FontWeight.bold,
+//               fontFamily: 'OpenSans',
+//             ),
+//           ),
+//           onPressed: () async {} // OnPressed
+//           ),
+//     );
+//   }
 
   Widget _scheduleFor() {
     return Container(
