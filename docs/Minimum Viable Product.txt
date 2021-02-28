@@ -1,0 +1,6 @@
+1. Owner able to create a event 
+2. Add their availability
+3. Generate a unique URL
+4. Anyone with the URL can add their availability
+5. Display all availability
+6. Display optimal scheduling time
