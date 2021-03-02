@@ -23,19 +23,12 @@ const client = new MongoClient("mongodb+srv://aryan:abcd1234@cluster0.bh2pi.mong
     const result = await collectionEvent.insertOne({
         "name" : "First event",
         "time" : "12 :30 pm",
-        "attendee":collectionAttendee,
+        "attendee_id": "Test attendee",
         "eventUrl": "testURL"
     });
 
-    collectionAttendee.insertOne({
-        "firstName" :"Arnold",
-        "email" : null,
-        "availability": {
-            "tuesday" : 2,
-            "weneday" : 4
-        }
 
-    });
     console.log((await result).insertedId);
+    //console.log((await result2).insertedId);
     client.close();
 })();
