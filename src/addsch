@@ -1,0 +1,109 @@
+onChange={(e)=> {
+            const selectedTime = e.target.value;
+            setstate(selectedTime);
+----------------
+import React from "react";
+
+class AppSchedule extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      const:[state, setstate] = useState(""),
+      options: [
+        { id: "1", time: "Today"},
+        { id: "2", time: "Specific Dates"},
+        { id: "3", time: "Days of the week"}
+      ],
+      
+    };
+  }
+  render() {
+    return (
+      <form>
+        <h2 style={{marginTop: 50}}><center>Schedule For</center></h2>
+        <label>
+          <select className='dropdown' onChange={(e)=> {
+            const selectedTime = e.target.value;
+            setstate(selectedTime);
+          }}>
+            {this.state.options.map(item => (
+              <option key={item.id} value={item.time} >
+                {item.time}
+              </option>
+            ))}
+          </select>
+          {state}
+        </label>
+      </form>
+    );
+  }
+}
+
+export default AppSchedule
+---------------------------------------------------------
+
+----------------------------------------------------
+import React,{ useState } from "react"
+
+const AddSchedule = () => {
+  const [state, setState] = useState("");
+
+
+  const messageChange = ()=> {
+        state: 'Thanks';
+
+
+return(
+  <div>
+    <h2 style={{marginTop: 30}}><center>Schedule For</center></h2>
+    <select 
+    className='dropdown'
+    onClick = {messageChange()}
+    onChange = {(e)=> {
+      const selected = e.target.value;
+      setState(selected);
+    }}>
+    <option value="">  </option>
+    <option value="Today"> Today </option>
+    <option value="Tomorrow"> Tomorrow </option>
+    
+    </select>
+    
+  </div>
+)
+}
+}
+export default AddSchedule
+----------------------------------------------
+
+
+import React,{ useState }from "react"
+import {Select, MenuItem} from "@material-ui/core"
+const AddSchedule = () => {
+  const [state, setState] = useState("");
+
+
+  return(
+    <div>
+      <h2 style={{marginTop: 30}}><center>Schedule For</center></h2>
+      <select 
+      className='dropdown'
+      //onClick = {messageChange()}
+      onChange = {(e)=> {
+        const selected = e.target.value;
+        setState(selected);
+      }}>
+      <option value="">  </option>
+      <option value="today"> Today </option>
+      <option value="dates"> Specific Dates </option>
+      <option value="days"> Specific Days of the Week </option>
+      {/* if ({state}=="today") {
+       console.log({state})
+      } */}
+      </select>
+      {state}
+    </div>
+  )
+}
+
+export default AddSchedule
