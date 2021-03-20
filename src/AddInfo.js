@@ -7,18 +7,21 @@ import AddDates from './AddDates'
 import {TextField} from '@material-ui/core'
 import {Button} from '@material-ui/core'
 import './index.css';
+import Popup from "./Popup"
 const AddInfo = () =>
 {
   const [value, setValue] = useState("")
+  //const[show, setShow] = useState(false)
   const handleChange = e =>
   {
     setValue(e.target.value)
   }
-  const handleButton= () =>
+  /* const handleButton= () =>
   {
+    
     alert('Event created!');
-  }
-  return (
+  }  */
+  return(
     <form className='add-form'>
       <div className='form-control'>
       <h2 style={{marginTop: 30}}><center>Event Title</center></h2>
@@ -30,19 +33,9 @@ const AddInfo = () =>
         <AddStartTime/>
         <AddEndTime/>
     </div>
-      <Button 
-      onClick={handleButton}
-      className='btn' 
-      variant="contained"
-      style ={{
-        fontSize : 20,
-        fontFamily: "inherit",
-        color:'white'
-      }}fullWidth
-      color="primary">
-        Create Event
-      </Button>
+    
     </form>
   )
+  
 }
 export default AddInfo

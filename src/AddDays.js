@@ -2,7 +2,7 @@ import React,{ useState } from "react"
 import {Multiselect} from 'multiselect-react-dropdown'
 
 const AddDays = () => {
-  const [state, setState] = useState("");
+  const [state] = useState("");
 
   const data = 
   [

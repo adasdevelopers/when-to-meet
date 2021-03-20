@@ -1,5 +1,6 @@
 import './index.css';
 import AddInfo from './AddInfo';
+import Popup from './Popup';
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
        <font size = "10"> Create An Event</font>
        </b></center></h1>
        <AddInfo/>
+       <Popup/>
     </div>
     
   );

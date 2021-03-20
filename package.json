@@ -7,14 +7,17 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.1",
+    "bootstrap": "^4.6.0",
     "multiselect-react-dropdown": "^1.6.11",
     "react": "^17.0.1",
+    "react-bootstrap": "^1.5.2",
     "react-calendar": "^3.3.1",
     "react-datepicker": "^3.6.0",
     "react-dom": "^17.0.1",
     "react-dropdown": "^1.9.2",
     "react-multi-date-picker": "^2.2.6",
     "react-scripts": "4.0.3",
+    "reactjs-popup": "^2.0.4",
     "web-vitals": "^1.1.0"
   },
   "scripts": {

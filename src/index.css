@@ -77,6 +77,9 @@ body {
   justify-content: space-between;
 }
 
+.blah {
+  justify-content: center;
+}
 .add-form {
   margin-bottom: 40px;
 }

@@ -12,7 +12,7 @@ const AddStartTime=()=>
     <div>
       <h2 style={{marginTop: 50}}><center>End Time</center></h2>
       <label>
-        <Select onChange={handleChange} className="dropdown">
+        <Select onChange={handleChange} className="dropdown" color="secondary">
           <MenuItem value=""></MenuItem>
           <MenuItem value="0">Midnight</MenuItem>
           <MenuItem value="1"> 1 A.M</MenuItem>
