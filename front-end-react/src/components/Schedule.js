@@ -9,7 +9,13 @@ const Schedule = () => {
     console.log(schedule);
   };
 
-  return <ScheduleSelector timeFormat="h:mma" hourlyChunks={4} />;
+  return (
+    <ScheduleSelector
+      timeFormat="h:mma"
+      hourlyChunks={4}
+      onChange={handleChange}
+    />
+  );
 };
 
 export default Schedule;
