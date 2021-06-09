@@ -11,6 +11,7 @@ const Schedule = () => {
 
   return (
     <ScheduleSelector
+      selection={schedule}
       timeFormat="h:mma"
       hourlyChunks={4}
       onChange={handleChange}
