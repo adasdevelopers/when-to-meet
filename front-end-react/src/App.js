@@ -1,4 +1,5 @@
 import "./index.css";
+import Schedule from "./components/Schedule";
 import AddInfo from "./components/AddInfo";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         </center>
       </h1>
       <AddInfo />
+      <Schedule />
     </div>
   );
 }
