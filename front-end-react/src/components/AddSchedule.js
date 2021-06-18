@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import { changeSchedule } from "../redux/actions";
+import { addStartDate, changeSchedule, addNumDays } from "../redux/actions";
 import { Select, MenuItem, Box } from "@material-ui/core";
 import DaysButton from "./DaysButton";
 
 const AddSchedule = (props) => {
+  const [value, setValue] = useState(new Date());
+
+  const setDate = () => {
+    console.log(props.schedule);
+    if (props.schedule === "today") {
+      const today = new Date();
+      let date =
+        today.getFullYear() +
+        "-" +
+        (today.getMonth() + 1) +
+        "-" +
+        today.getDate();
+      props.addStartDate(date);
+      props.addNumDays(1);
+      console.log(props.numDays);
+    }
+  };
+
   const selectDays = () => {
     return (
       <div>
@@ -48,11 +66,11 @@ const AddSchedule = (props) => {
         <MenuItem value="dates"> Specific Dates </MenuItem>
         <MenuItem value="days"> Specific Days of the Week </MenuItem>
       </Select>
-      {props.schedule === "dates"
-        ? console.log("dates")
+      {props.schedule === "today"
+        ? setDate()
         : props.schedule === "days"
         ? selectDays()
-        : console.log("null")}
+        : null}
     </div>
   );
 };
@@ -60,12 +78,16 @@ const AddSchedule = (props) => {
 const mapStateToProps = (state) => {
   return {
     schedule: state.eventDetails.eventSchedule,
+    startDate: state.eventDetails.eventStartDate,
+    numDays: state.eventDetails.numOfDays,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     changeSchedule: (event) => dispatch(changeSchedule(event.target.value)),
+    addStartDate: (date) => dispatch(addStartDate(date)),
+    addNumDays: (num) => dispatch(addNumDays(num)),
   };
 };
 

@@ -3,28 +3,32 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { changeTitle } from "../redux/actions";
 import { TextField, Select, Button } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
 import AddSchedule from "./AddSchedule";
 import AddTime from "./AddTime";
 
 const AddInfo = (props) => {
+  const history = useHistory();
+
   const eventInfo = {
     eventName: props.title,
-    eventTime: props.endTime,
-    eventUrl: "something",
-    attendeeId: "4",
+    eventStartTime: props.startTime,
+    eventEndTime: props.endTime,
+    startDate: props.startDate,
+    numOfDays: props.numDays,
   };
 
   const createEvent = async (e) => {
     e.preventDefault();
-    /*
+    //history.push("/addavailability");
+
     const response = await axios
       .post("http://localhost:3000/createevent", eventInfo)
       .then((res) => {
-        console.log(res);
-        console.log(res.data);
+        history.push("/addavailability/" + res.data.createdObjectId);
       });
-    */
+
     console.log(eventInfo);
   };
 
@@ -69,6 +73,8 @@ const mapStateToProps = (state) => {
     title: state.eventDetails.eventTitle,
     startTime: state.eventDetails.eventStartTime,
     endTime: state.eventDetails.eventEndTime,
+    startDate: state.eventDetails.eventStartDate,
+    numDays: state.eventDetails.numOfDays,
   };
 };
 
