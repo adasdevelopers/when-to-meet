@@ -19,6 +19,6 @@ client.connect();
 
 app.post('/createevent', (req, res) => { CreateEvent.createEvent(req, res, client.db("When2Meet"), Event) });
 app.post('/createattendee', (req, res) => { CreateAttendee.createAttendee(req, res, client.db("When2Meet"), Attendee) });
-app.get('/getevent', (req, res) => { GetEvent.getEvent(req, res, client.db("When2Meet")) });
+app.post('/getevent', (req, res) => { GetEvent.getEvent(req, res, client.db("When2Meet")) });
 
 app.listen(3000, () => console.log("Server running on port 3000"));
