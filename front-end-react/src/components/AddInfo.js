@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 import { changeTitle } from "../redux/actions";
 import { TextField, Select, Button } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 import AddSchedule from "./AddSchedule";
 import AddTime from "./AddTime";
@@ -18,6 +21,15 @@ const AddInfo = (props) => {
     startDate: props.startDate,
     numOfDays: props.numDays,
   };
+
+  const [open, setOpen] = React.useState(false);
+    const handleClickOpen = () => 
+    {
+      setOpen(true);
+};
+    const handleClose = () => {
+      setOpen(false);
+      };
 
   const createEvent = async (e) => {
     e.preventDefault();
@@ -58,12 +70,30 @@ const AddInfo = (props) => {
         variant="contained"
         color="primary"
         className="btn"
-        onClick={createEvent}
+        onClick={handleClickOpen}
         buttonStyle={{ borderRadius: 25 }}
         style={{ marginTop: "5vh", borderRadius: 25 }}
       >
         <center>Create Event </center>
       </Button>
+      <Dialog
+       open={open}
+       onClose={handleClose}
+       aria-labelledby="alert-dialog-title"
+       aria-describedby="alert-dialog-description"
+     >
+       <DialogTitle id="alert-dialog-title">{"Event has been created!"}</DialogTitle>
+       <DialogActions>
+         <Button onClick={createEvent} color="primary">
+           Add Availability Now
+         </Button>
+         <Button onClick={handleClose} color="primary" autoFocus>
+         Add Availability Later
+         </Button>
+       </DialogActions>
+     </Dialog>
+
+
     </form>
   );
 };

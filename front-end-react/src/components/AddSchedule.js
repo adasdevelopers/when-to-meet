@@ -3,29 +3,30 @@ import { connect } from "react-redux";
 import { addStartDate, changeSchedule, addNumDays } from "../redux/actions";
 import { Select, MenuItem, Box } from "@material-ui/core";
 import DaysButton from "./DaysButton";
+import DatePicker from "react-multi-date-picker"
+
+
 
 const AddSchedule = (props) => {
+  
+  
   const [value, setValue] = useState(new Date());
 
-  const setDate = () => {
-    console.log(props.schedule);
-    if (props.schedule === "today") {
-      const today = new Date();
-      let date =
-        today.getFullYear() +
-        "-" +
-        (today.getMonth() + 1) +
-        "-" +
-        today.getDate();
-      props.addStartDate(date);
-      props.addNumDays(1);
-      console.log(props.numDays);
-    }
-  };
+  const selectDates = () =>
+  {
+  return(
+   <div style={{justifyContent: "center" }}> 
+    <DatePicker value={value} onChange={setValue} minDate={new Date()} multiple={true}></DatePicker>
+    
+    </div>
+  );
 
+  }
   const selectDays = () => {
-    return (
+    
+    return(  
       <div>
+         
         <center>
           <h3 style={{ paddingTop: "3vh" }}>Select the days to schedule</h3>
         </center>
@@ -56,6 +57,25 @@ const AddSchedule = (props) => {
     );
   };
 
+  const setDate = () => {
+    
+    console.log(props.schedule);
+    if (props.schedule === "today") {
+      const today = new Date();
+      let date =
+        today.getFullYear() +
+        "-" +
+        (today.getMonth() + 1) +
+        "-" +
+        today.getDate();
+      props.addStartDate(date);
+      props.addNumDays(1);
+      console.log(props.numDays);
+    }
+  };
+
+  
+
   return (
     <div>
       <h2 style={{ marginTop: "5vh" }}>
@@ -70,7 +90,9 @@ const AddSchedule = (props) => {
         ? setDate()
         : props.schedule === "days"
         ? selectDays()
-        : null}
+        : props.schedule === "dates"
+        ? selectDates()
+        :null}
     </div>
   );
 };
