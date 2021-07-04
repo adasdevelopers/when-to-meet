@@ -6,7 +6,7 @@ const createAttendee = async(req, res, database, Attendee) => {
             attendeeEmail: req.body.attendeeEmail,
             availability: req.body.availability
         }); 
-
+        console.log(req.body);
         result = await database.collection("Attendee").insertOne(attendee);
         console.log((await result).insertedId);
         return res.status(201).json({message: "Attendee Created"});

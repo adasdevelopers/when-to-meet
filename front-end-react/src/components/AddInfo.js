@@ -21,7 +21,6 @@ const AddInfo = (props) => {
 
   const createEvent = async (e) => {
     e.preventDefault();
-    //history.push("/addavailability");
 
     const response = await axios
       .post("http://localhost:3000/createevent", eventInfo)
@@ -47,12 +46,6 @@ const AddInfo = (props) => {
         />
         <AddSchedule />
         <AddTime />
-      </div>
-      <div>
-        <h2 style={{ marginTop: "5vh" }}>
-          <center>Timezone</center>
-        </h2>
-        <Select className="dropdown"></Select>
       </div>
       <Button
         variant="contained"

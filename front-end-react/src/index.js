@@ -7,6 +7,7 @@ import store from "./redux/store";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Schedule from "./components/Schedule";
+import Final from "./components/Final";
 
 ReactDOM.render(
   <Provider store={store}>
@@ -15,6 +16,7 @@ ReactDOM.render(
         <Switch>
           <Route exact path="/" component={App} />
           <Route path="/addavailability/:event" component={Schedule} />
+          <Route path="/eventdetails/:event" component={Final} />
         </Switch>
       </Router>
     </React.StrictMode>

@@ -12,10 +12,10 @@ const AttendeeSchema = new Schema({
     }, 
     attendeeEmail: {
         type: String,
-        required: true
+        required: false
     },
     availability: {
-        type: String,
+        type: Array,
         required: true
     }
 });

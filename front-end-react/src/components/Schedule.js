@@ -24,9 +24,23 @@ const Schedule = (props) => {
       });
   }, []);
 
-  const buttonClick = () => {
-    console.log(schedule, props.availability, props.username, props.useremail);
-    console.log(event);
+  const buttonClick = async () => {
+    if (props.username && props.availability) {
+      console.log(props.availability);
+      await axios
+        .post("http://localhost:3000/createattendee", {
+          eventId: event,
+          attendeeName: props.username,
+          attendeeEmail: props.useremail,
+          availability: props.availability
+          })
+        .then((res) => {
+            console.log(res);
+        });
+      }
+    else {
+      console.log("Please enter your name and availability");
+    }
   };
 
   const handleChange = (newSchedule) => {
