@@ -14,7 +14,7 @@ import { Info } from "@material-ui/icons";
 
 function App() {
   return (
-    <div className="container">
+    <div class="container">
       <h1>
         <center>
           <b>

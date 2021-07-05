@@ -10,6 +10,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 import AddSchedule from "./AddSchedule";
 import AddTime from "./AddTime";
+import AddTimezone from "./AddTimezone";
 
 const AddInfo = (props) => {
   const history = useHistory();
@@ -59,12 +60,7 @@ const AddInfo = (props) => {
         />
         <AddSchedule />
         <AddTime />
-      </div>
-      <div>
-        <h2 style={{ marginTop: "5vh" }}>
-          <center>Timezone</center>
-        </h2>
-        <Select className="dropdown"></Select>
+        <AddTimezone/>
       </div>
       <Button
         variant="contained"

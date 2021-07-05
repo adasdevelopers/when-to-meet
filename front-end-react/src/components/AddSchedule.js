@@ -15,9 +15,14 @@ const AddSchedule = (props) => {
   const selectDates = () =>
   {
   return(
-   <div style={{justifyContent: "center" }}> 
+    <div>
+      <center>
+          <h3 style={{ paddingTop: "3vh" }}>Select the dates to schedule</h3>
+        </center>
+   <div style={{display:"flex", justifyContent: "center" }}> 
     <DatePicker value={value} onChange={setValue} minDate={new Date()} multiple={true}></DatePicker>
     
+    </div>
     </div>
   );
 
