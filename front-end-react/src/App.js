@@ -1,6 +1,7 @@
 import "./index.css";
 import Schedule from "./components/Schedule";
 import AddInfo from "./components/AddInfo";
+
 import DisplayAvailability from "./components/DisplayAvailability";
 import {
   BrowserRouter as Router,
