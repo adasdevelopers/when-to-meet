@@ -1,6 +1,8 @@
 import "./index.css";
 import Schedule from "./components/Schedule";
 import AddInfo from "./components/AddInfo";
+
+import DisplayAvailability from "./components/DisplayAvailability";
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,10 +11,11 @@ import {
   useRouteMatch,
   useParams,
 } from "react-router-dom";
+import { Info } from "@material-ui/icons";
 
 function App() {
   return (
-    <div className="container">
+    <div class="container">
       <h1>
         <center>
           <b>
@@ -21,6 +24,7 @@ function App() {
         </center>
       </h1>
       <AddInfo />
+      
     </div>
   );
 }
